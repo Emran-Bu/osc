@@ -117,7 +117,7 @@
             $sql = "DELETE FROM submit_requester_tb where requester_id = {$_REQUEST['id']}";
     
             if ($conn->query($sql) == true) {
-                echo '<div class="col-sm-6 col-md-5 col-xl-3 alert alert-success alert-dismissible fade show" role="alert" style="position: fixed;right: 10px;top: 10%px;z-index: 1;">
+                echo '<div class="col-sm-6 col-md-5 col-xl-3 alert alert-success alert-dismissible fade show" role="alert" style="position: fixed;right: 10px; top: 10%; z-index: 1;">
                 <span class="me-2" id="counter" ></span>
                     Request Id (' . "{$_REQUEST['id']}" . ') Deleted Successfully.
                     <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close">
@@ -126,7 +126,7 @@
 
                 echo '<meta http-equiv="refresh" content="0; url=?closed">';
             } else {
-                echo '<div class="col-sm-6 col-md-5 col-xl-3 alert alert-danger alert-dismissible fade show" role="alert" style="position: fixed;right: 10px;top: 10%px;z-index: 1;">
+                echo '<div class="col-sm-6 col-md-5 col-xl-3 alert alert-danger alert-dismissible fade show" role="alert" style="position: fixed;right: 10px; top: 10%; z-index: 1;">
                 <span class="me-2" id="counter" ></span>
                     Unable to Request Id (' . "{$_REQUEST['id']}" . ') Deleted.
                     <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close">
@@ -291,7 +291,8 @@
         }
     </script>
 
-    <script>
+    <!--Start Alert box script-->
+    <script> 
         setTimeout(() => {
             // location.href = 'session.php'
             $('.alert').fadeOut();
@@ -310,7 +311,7 @@
             counter.style.color = "blue"
 
         }, 1000);
-    </script>
+    </script> <!--End Alert box script-->
     <!--start only number for input tag-->
 <!-- footer part -->
 <?php include('adminFooter.php'); ?>
