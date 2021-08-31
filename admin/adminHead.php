@@ -25,7 +25,7 @@
     <div class="container-fluid mt-5">
         <div class="row"> <!-- Start Row -->
             <!-- Start left sidebar -->
-            <nav class="col-sm-4 col-xl-2 col-md-3 bg-light sidebar py-5 d-print-none"> <!-- start first col start -->
+            <nav class="col-sm-4 col-xl-2 col-md-3 py-5 bg-light sidebar d-print-none"> <!-- start first col start -->
                 <div class="sidebar">
                     <ul class="nav flex-column">
                         <li class="nav-item"><a class="nav-link text-dark adminHover <?php if(PAGE == 'dashboard'){echo 'adminActive';} ?>" href="dashboard.php"><i class="fas fa-tachometer-alt text-warning me-2 fw-bold"></i>Dashboard</a></li>
