@@ -77,7 +77,7 @@
                 }
             } else {
                 echo '<div class="col-sm-6 text-center bg-danger rounded-3 text-light p-3">
-                    No Request Found.
+                    No Requests Found.
                 </div>';
             }
             
