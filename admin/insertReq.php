@@ -31,34 +31,34 @@
             </div>";
         } else {
 
-                // show already data for table
-                $sql = "SELECT r_email FROM requester_login_tb";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $old_email = $row['r_email'];
-                    }
+            // show already data for table validation
+            $sql = "SELECT r_email FROM requester_login_tb";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $old_email = $row['r_email'];
                 }
+            } // end already data for table validation
 
-                if($r_email == $old_email){
-                    $msg = "<div class='alert text-center alert-danger alert-dismissible fade show' role='alert'>Email ID Already Registered
+            if($r_email == $old_email){
+                $msg = "<div class='alert text-center alert-danger alert-dismissible fade show' role='alert'>Email ID Already Registered
+                    <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
+                </div>";
+            } else {
+                // Start Insert Table data new requester Create
+                $sql = "INSERT INTO requester_login_tb(r_name, r_email, r_password) values('{$r_name}', '{$r_email}', '{$r_password}')";
+        
+                if ($conn->query($sql)) {
+                    $msg = "<div class='alert text-center alert-success alert-dismissible fade show' role='alert'>Requester Account Created Successfully
                         <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
                     </div>";
                 } else {
-                    // Start Insert Table data new requester Create
-                    $sql = "INSERT INTO requester_login_tb(r_name, r_email, r_password) values('{$r_name}', '{$r_email}', '{$r_password}')";
-            
-                    if ($conn->query($sql)) {
-                        $msg = "<div class='alert text-center alert-success alert-dismissible fade show' role='alert'>Requester Account Created Successfully
-                            <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
-                        </div>";
-                    } else {
-                        $msg = "<div class='alert text-center alert-danger alert-dismissible fade show' role='alert'>Unable to Requester Create Account
-                            <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
-                        </div>";
-                    }
+                    $msg = "<div class='alert text-center alert-danger alert-dismissible fade show' role='alert'>Unable to Requester Create Account
+                        <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
+                    </div>";
                 }
-        } // End Insert Table data new requester Create
+            } // End Insert Table data new requester Create
+        }
     }
 ?>
 <!-- end update PHP part -->
