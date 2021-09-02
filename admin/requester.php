@@ -152,13 +152,13 @@
 <!-- back to row div for insert data in table Therefore direct footer part adjust -->
 <!-- footer part -->
 </div> <!-- End Row -->
-        <div class="float-end mx-5 my-3">
+        <div class="float-end mx-5 my-3 position-fixed" style="top:80vh; right:10px"> <!-- start plus icon -->
             <form action="insertReq.php" method="post">
                 <button class="btn btn-info">
                     <i class="fas fa-plus fa-2x text-light"></i>
                 </button>
             </form>
-        </div>
+        </div> <!-- end plus icon -->
     </div> <!-- End left sidebar container -->
 
     <!-- jquery link -->

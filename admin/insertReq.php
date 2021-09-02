@@ -1,7 +1,7 @@
 <?php
     // title define and Page define for active class in sidebar
     define('TITLE', 'Insert | Requester');
-    define('PAGE', 'technician');
+    define('PAGE', 'requester');
     // database connection
     include('../dbConnection.php');
     // start login session
@@ -17,7 +17,7 @@
 <!-- header part -->
 <?php include('adminHead.php'); ?>
 
-<!-- start update PHP part -->
+<!-- start insert PHP part -->
 <?php
     if (isset($_REQUEST['r_submit'])) {
         $r_id = $_REQUEST['r_id'];
@@ -36,11 +36,11 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    $old_email = $row['r_email'];
+                    $check_email = $row['r_email'];
                 }
             } // end already data for table validation
 
-            if($r_email == $old_email){
+            if(($r_email >= $check_email)){
                 $msg = "<div class='alert text-center alert-danger alert-dismissible fade show' role='alert'>Email ID Already Registered
                     <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
                 </div>";
@@ -61,7 +61,7 @@
         }
     }
 ?>
-<!-- end update PHP part -->
+<!-- end insert PHP part -->
 
 <!-- Start technician part -->
     <!-- start 2nd form column -->
@@ -87,7 +87,7 @@
             </div>
             <div class='form-group text-center'>
                 <!-- <input type="hidden" value=''> -->
-                <input class='btn btn-success' type='submit' value='Submit' name='r_submit' id='r_submit'/>
+                <input class='btn me-3 btn-success' type='submit' value='Submit' name='r_submit' id='r_submit'/>
                 <a class='btn btn-secondary' href='requester.php'>Close</a>
             </div>
         </form>

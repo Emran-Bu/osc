@@ -1,7 +1,7 @@
 <?php
 
     define('TITLE', 'Edit | Requester');
-    define('PAGE', 'submitReq');
+    define('PAGE', 'requester');
     include('adminHead.php');
     include('../dbConnection.php');
     // start login session
@@ -24,7 +24,7 @@
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
                 $o_rname = $row['r_name'];
-                        $o_remail = $row['r_email'];
+                $o_remail = $row['r_email'];
         } else {
             echo "<h1>Failed.</h1>";
         } // end read show data in form

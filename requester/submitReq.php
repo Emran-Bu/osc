@@ -19,36 +19,51 @@
             </div>";
             # End Checking for empty fields
         } else {
-            # start insert data
-            $rInfo = $_REQUEST['requestInfo'];
-            $rDesc = $_REQUEST['requestDesc'];
-            $rName = $_REQUEST['requestName'];
-            $rAdd1 = $_REQUEST['requestAdd1'];
-            $rAdd2 = $_REQUEST['requestAdd2'];
-            $rCity = $_REQUEST['requestCity'];
-            $rState = $_REQUEST['requestState'];
-            $rZip = $_REQUEST['requestZip'];
-            $rEmail = $_REQUEST['requestEmail'];
-            $rMobile = $_REQUEST['requestMobile'];
-            $rDate = $_REQUEST['requestDate'];
+            // show already data for table validation
+            $sql = "SELECT tech_email FROM technician_tb";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $old_email = $row['tech_email'];
+                }
+            } // end already data for table validation
 
-            $sql = "INSERT INTO submit_requester_tb(requester_info, requester_desc, requester_name, requester_add1, requester_add2, requester_city, requester_state, requester_zip, requester_email, requester_mobile, requester_date) VALUES('{$rInfo}', '{$rDesc}', '{$rName}', '{$rAdd1}', '{$rAdd2}', '{$rCity}', '{$rState}', {$rZip}, '{$rEmail}', {$rMobile}, '{$rDate}')";
-
-            if ($conn->query($sql) == true) {
-                $genId = mysqli_insert_id($conn);
-                $msg = "<div class='alert text-center p-1 alert-success alert-dismissible fade show' role='alert'>Request Submitted Successfully.
-                    <button type='button' class='btn-close p-2' data-bs-dismiss = 'alert' aria-label='close'></button>
+            if($tech_email >= $old_email){
+                $msg = "<div class='alert text-center alert-danger alert-dismissible fade show' role='alert'>Email ID Already Registered
+                    <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
                 </div>";
-                $_SESSION['myId'] = $genId;
-                echo "<script>location.href='subReqSucc.php';</script>";
             } else {
-                $msg = "<div class='alert text-center p-1 alert-warning alert-dismissible fade show' role='alert'>Unable to Submit.
-                    <button type='button' class='btn-close p-2' data-bs-dismiss = 'alert' aria-label='close'></button>
-                </div>";
-            }
-            
-            # end insert data
-        }
+                # start insert data
+                $rInfo = $_REQUEST['requestInfo'];
+                $rDesc = $_REQUEST['requestDesc'];
+                $rName = $_REQUEST['requestName'];
+                $rAdd1 = $_REQUEST['requestAdd1'];
+                $rAdd2 = $_REQUEST['requestAdd2'];
+                $rCity = $_REQUEST['requestCity'];
+                $rState = $_REQUEST['requestState'];
+                $rZip = $_REQUEST['requestZip'];
+                $rEmail = $_REQUEST['requestEmail'];
+                $rMobile = $_REQUEST['requestMobile'];
+                $rDate = $_REQUEST['requestDate'];
+    
+                $sql = "INSERT INTO submit_requester_tb(requester_info, requester_desc, requester_name, requester_add1, requester_add2, requester_city, requester_state, requester_zip, requester_email, requester_mobile, requester_date) VALUES('{$rInfo}', '{$rDesc}', '{$rName}', '{$rAdd1}', '{$rAdd2}', '{$rCity}', '{$rState}', {$rZip}, '{$rEmail}', {$rMobile}, '{$rDate}')";
+    
+                if ($conn->query($sql) == true) {
+                    $genId = mysqli_insert_id($conn);
+                    $msg = "<div class='alert text-center p-1 alert-success alert-dismissible fade show' role='alert'>Request Submitted Successfully.
+                        <button type='button' class='btn-close p-2' data-bs-dismiss = 'alert' aria-label='close'></button>
+                    </div>";
+                    $_SESSION['myId'] = $genId;
+                    echo "<script>location.href='subReqSucc.php';</script>";
+                } else {
+                    $msg = "<div class='alert text-center p-1 alert-warning alert-dismissible fade show' role='alert'>Unable to Submit.
+                        <button type='button' class='btn-close p-2' data-bs-dismiss = 'alert' aria-label='close'></button>
+                    </div>";
+                }
+                
+                
+            } # end insert data
+        } 
         
     }
     // end submit btn click
