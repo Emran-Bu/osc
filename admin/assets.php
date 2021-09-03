@@ -54,12 +54,12 @@
                             <td class="d-flex align-items-center justify-content-center">
                                 <form class='me-1' action='editProduct.php' method='post'>
                                     <input type='hidden' name='editID' value='<?= $row['p_id']; ?>'>
-                                    <button class='btn btn-warning' type='submit' name='viewBtn'><i class='fas fa-edit'></i></button>
+                                    <button class='btn btn-warning' type='submit' name='viewBtn' data-bs-toggle="tooltip" title="Edit Product" data-bs-placement="top"><i class='fas fa-edit'></i></button>
                                 </form>
 
                                 <form class='me-1' action='' method='post'>
                                     <input type='hidden' name='deleteID' value='<?= $row['p_id']; ?>'>
-                                    <button class='btn btn-danger' type='button' name='delete' data-bs-toggle='modal' data-bs-target='#user<?= $row['p_id']; ?>'><i class='far fa-trash-alt'></i></button>
+                                    <button class='btn btn-danger' type='button' name='delete' title="Delete Product" data-bs-toggle='modal' data-bs-target='#user<?= $row['p_id']; ?>'><i class='far fa-trash-alt'></i></button>
                                 </form>
 
                                 <form class='me-1' action='editProduct.php' method='post'>
