@@ -18,7 +18,7 @@
 
     <!-- Topnav -->
     <nav class="navbar navbar-expand bg-info navbar-dark p-0 fixed-top shadow justify-content-sm-start justify-content-center">
-        <a class="navbar-brand ms-sm-3 ms-0" href="profile.php">OSC</a>
+        <a class="navbar-brand ms-sm-3 ms-0" href="dashboard.php">OSC</a>
     </nav>
 
     <!-- Start sidebar container -->

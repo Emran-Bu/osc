@@ -19,7 +19,7 @@
 <!-- Start requester part -->
 
 <!-- start 2nd column requester -->
-    <div class="col-sm-8 col-xl-10 col-md-9 py-5 text-center">
+    <div class="col-sm-6 col-xl-10 col-md-7 py-5 text-center">
         <div class="mx-5">
             <p class="text-light bg-dark p-2">List Of Requesters</p>
             <table class="table">
@@ -154,7 +154,7 @@
 </div> <!-- End Row -->
         <div class="float-end mx-5 my-3 position-fixed" style="top:80vh; right:10px"> <!-- start plus icon -->
             <form action="insertReq.php" method="post">
-                <button class="btn btn-info">
+                <button class="btn btn-info" data-bs-toggle="tooltip" title="Add Requester" data-bs-placement="top">
                     <i class="fas fa-plus fa-2x text-light"></i>
                 </button>
             </form>
@@ -167,6 +167,14 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <!-- font awesome link -->
     <script src="../js/all.min.js"></script>
+
+    <!-- Start Tooltip script-->
+    <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl){
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    </script> <!-- End Tooltip script-->
     
 </body>
 </html>

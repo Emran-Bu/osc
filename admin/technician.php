@@ -158,7 +158,7 @@
 </div> <!-- End Row -->
         <div class="float-end mx-5 my-3 position-fixed" style="top:80vh; right:10px"> <!-- start plus icon -->
             <form action="insertTech.php" method="post">
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" data-bs-toggle="tooltip" title="Add Technician" data-bs-placement="top">
                     <i class="fas fa-plus fa-2x text-light"></i>
                 </button>
             </form>
@@ -172,5 +172,13 @@
     <!-- font awesome link -->
     <script src="../js/all.min.js"></script>
     
+    <!-- Start Tooltip script-->
+    <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl){
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    </script> <!-- End Tooltip script-->
+
 </body>
 </html>
