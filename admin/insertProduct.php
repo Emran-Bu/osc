@@ -76,7 +76,7 @@
                 <input type='text' class='form-control' value='' name='p_name' id='p_name'/>
             </div>
             <div class='form-group mb-2'>
-                <label class='mb-1 text-light fw-bold'>Date</label>
+                <label class='mb-1 text-light fw-bold'>Date of Purchase</label>
                 <input type='date' class='form-control' value='' name='p_date' id='p_date'/>
             </div>
             <div class='form-group  mb-2'>

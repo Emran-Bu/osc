@@ -22,6 +22,7 @@ if (isset($_REQUEST['viewBtn'])) {
         $row = $result->fetch_assoc();
         echo "<div class='mt-5 col-sm-6 col-xl-8 col-md-7'>
             <table class='table table-bordered table-striped mx-md-5 mx-sm-3'>
+                <h3 class='mb-3 text-center'>Requester Info</h3>
                 <tbody>
                     <tr>
                         <th>Request ID : </th>

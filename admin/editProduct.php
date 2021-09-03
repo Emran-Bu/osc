@@ -83,7 +83,7 @@
     <div class='py-5 col-sm-8'>
     
         <form class='bg-success p-5 rounded-3 mx-5' action='' method='post'>
-            <h2 class='text-center text-light p-2'>Add New Product.</h2>
+            <h2 class='text-center text-light p-2'>Update Product Details.</h2>
             <?php if (isset($msg)) {echo $msg;} ?>
             <div class='form-group mb-2'>
                 <input type='hidden' class='form-control' value='<?php if(isset($row['p_id'])) {echo $row['p_id'];} ?>' id='p_id' name='p_id' onkeypress="isInputNumber(event)" readonly/>
@@ -93,7 +93,7 @@
                 <input type='text' class='form-control' value='<?php if(isset($row['p_name'])) {echo $row['p_name'];} ?>' name='p_name' id='p_name'/>
             </div>
             <div class='form-group mb-2'>
-                <label class='mb-1 text-light fw-bold'>Date</label>
+                <label class='mb-1 text-light fw-bold'>Date of Purchase</label>
                 <input type='date' class='form-control' value='<?php if(isset($row['p_date'])) {echo $row['p_date'];} ?>' name='p_date' id='p_date'/>
             </div>
             <div class='form-group  mb-2'>
@@ -114,7 +114,7 @@
             </div>
             <div class='form-group text-center'>
                 <!-- <input type="hidden" value=''> -->
-                <input class='btn btn-info me-3 text-light fw-bold' type='submit' value='Submit' name='p_update' id='p_update'/>
+                <input class='btn btn-info me-3 text-light fw-bold' type='submit' value='Update' name='p_update' id='p_update'/>
                 <a class='btn btn-danger fw-bold' href='assets.php'>Close</a>
             </div>
         </form>

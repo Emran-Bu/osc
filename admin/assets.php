@@ -27,7 +27,7 @@
                     <tr>
                         <th>Product ID.</th>
                         <th>Name</th>
-                        <th>Date</th>
+                        <th>Date of Purchase</th>
                         <th>Available</th>
                         <th>Total</th>
                         <th>Original Cost Each</th>
@@ -62,9 +62,9 @@
                                     <button class='btn btn-danger' type='button' name='delete' title="Delete Product" data-bs-toggle='modal' data-bs-target='#user<?= $row['p_id']; ?>'><i class='far fa-trash-alt'></i></button>
                                 </form>
 
-                                <form class='me-1' action='editProduct.php' method='post'>
-                                    <input type='hidden' name='editID' value='<?= $row['p_id']; ?>'>
-                                    <button class='btn btn-primary' type='submit' name='viewBtn'><i class='fas fa-handshake'></i></button>
+                                <form class='me-1' action='sellProduct.php' method='post'>
+                                    <input type='hidden' name='sellID' value='<?= $row['p_id']; ?>'>
+                                    <button class='btn btn-primary' type='submit' name='sellBtn' data-bs-toggle="tooltip" title="Sell Product" data-bs-placement="top"><i class='fas fa-handshake'></i></button>
                                 </form>
                             </td>
                         </tr>
