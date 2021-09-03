@@ -65,6 +65,8 @@
                 $msg = "<div class='alert mt-2 text-center alert-success alert-dismissible fade show' role='alert'>Technician Id Uploaded.
                     <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
                 </div>";
+                echo '<meta http-equiv="refresh" content="0; url=?closed">';
+                echo "<script>location.href='technician.php'</script>";
             } else {
                 $msg = "<div class='alert mt-2 text-center alert-danger alert-dismissible fade show' role='alert'>Unable To Technician Id Uploaded.
                     <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
@@ -83,7 +85,7 @@
             <?php if (isset($msg)) {echo $msg;} ?>
             <div class='form-group mb-2'>
                 <label class='mb-1 text-light fw-bold'>Technician ID</label>
-                <input type='number' class='form-control' value='<?php if(isset($row['tech_id'])){echo $row['tech_id'];} ?>' name='tech_id' id='tech_id' readonly/>
+                <input type='number' class='form-control' value='<?php if(isset($row['tech_id'])){echo $row['tech_id'];} ?>' name='tech_id' id='tech_id' onkeypress="isInputNumber(event)" readonly/>
             </div>
             <div class='form-group mb-2'>
                 <label class='mb-1 text-light fw-bold'>Name</label>
@@ -95,7 +97,7 @@
             </div>
             <div class='form-group mb-2'>
                 <label class='mb-1 text-light fw-bold'>Mobile</label>
-                <input type='text' class='form-control' value='<?php if(isset($row['tech_mobile'])){echo $row['tech_mobile'];} ?>' name='tech_mobile' id='tech_mobile'/>
+                <input type='number' class='form-control' value='<?php if(isset($row['tech_mobile'])){echo $row['tech_mobile'];} ?>' name='tech_mobile' id='tech_mobile' onkeypress="isInputNumber(event)"/>
             </div>
             <div class='form-group mb-5'>
                 <label class='mb-1 text-light fw-bold'>Email</label>
@@ -109,6 +111,17 @@
         </form>
 
     </div> <!-- end 2nd column part in form -->
+
+    <!--start only number for input tag-->
+    <script>
+        function isInputNumber(evt) {
+            var ch = String.fromCharCode(evt.which);
+            if (!(/[0-9]/).test(ch)) {
+                evt.preventDefault();
+            }
+        }
+    </script>
+<!--end only number for input tag-->
 
 <?php
 include('adminFooter.php');

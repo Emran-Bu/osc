@@ -69,7 +69,7 @@
             <h2 class='text-center text-light p-2'>Add New Product.</h2>
             <?php if (isset($msg)) {echo $msg;} ?>
             <div class='form-group mb-2'>
-                <input type='hidden' class='form-control' value='' id='p_id' name='p_id' readonly/>
+                <input type='hidden' class='form-control' value='' id='p_id' name='p_id' onkeypress="isInputNumber(event)" readonly/>
             </div>
             <div class='form-group mb-2'>
                 <label class='mb-1 text-light fw-bold'>Product Name</label>

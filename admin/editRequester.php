@@ -66,6 +66,7 @@
                 $msg = "<div class='alert mt-2 text-center alert-success alert-dismissible fade show' role='alert'>Requester Id Uploaded.
                     <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
                 </div>";
+                echo "<script>location.href='requester.php'</script>";
             } else {
                 $msg = "<div class='alert mt-2 text-center alert-danger alert-dismissible fade show' role='alert'>Unable To Requester Id Uploaded.
                     <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
