@@ -30,21 +30,15 @@
                 <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
             </div>";
         } else {
-
             // show already data for table validation
-            $sql = "SELECT r_email FROM requester_login_tb";
+            $sql = "SELECT r_email FROM requester_login_tb where r_email = '{$r_email}'";
             $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $check_email = $row['r_email'];
-                }
-            } // end already data for table validation
-
-            if(($r_email >= $check_email)){
+            if ($result->num_rows == 1) {
                 $msg = "<div class='alert text-center alert-danger alert-dismissible fade show' role='alert'>Email ID Already Registered
                     <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
                 </div>";
-            } else {
+            } // end already data for table validation
+            else {
                 // Start Insert Table data new requester Create
                 $sql = "INSERT INTO requester_login_tb(r_name, r_email, r_password) values('{$r_name}', '{$r_email}', '{$r_password}')";
         
@@ -65,7 +59,7 @@
 
 <!-- Start technician part -->
     <!-- start 2nd form column -->
-    <div class='mt-5 col-sm-6'>
+    <div class='py-5 col-sm-8'>
     
         <form class='bg-info p-5 rounded-3 mx-5' action='' method='post'>
             <h2 class='text-center text-light p-2'>Add New Requester.</h2>
