@@ -6,6 +6,7 @@
             $msg = "<div class='alert mt-2 text-center alert-danger alert-dismissible fade show' role='alert'>All Fields Are Required.
                 <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
             </div>";
+            echo "<script>location.href = 'http://localhost/osc/index.php#contact'</script>";
         } else {
             $c_name = $_REQUEST['cName'];
             $c_subject = $_REQUEST['cSubject'];
@@ -20,6 +21,7 @@
             $msg = "<div class='alert mt-2 text-center alert-success alert-dismissible fade show' role='alert'>Sent Successfully.
                 <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
             </div>";
+            echo "<script>location.href = 'http://localhost/osc/index.php#contact'</script>";
         }
     }
 
