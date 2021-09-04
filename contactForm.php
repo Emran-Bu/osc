@@ -1,9 +1,37 @@
+<?php
+
+    if (isset($_REQUEST['cSubmit'])) {
+        # Checking for empty fields
+        if (($_REQUEST['cName'] == "") || ($_REQUEST['cSubject'] == "") || ($_REQUEST['cEmail'] == "") || ($_REQUEST['cMessage'] == "")) {
+            $msg = "<div class='alert mt-2 text-center alert-danger alert-dismissible fade show' role='alert'>All Fields Are Required.
+                <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
+            </div>";
+        } else {
+            $c_name = $_REQUEST['cName'];
+            $c_subject = $_REQUEST['cSubject'];
+            $c_email = $_REQUEST['cEmail'];
+            $c_message = $_REQUEST['cMessage'];
+
+            $mailTo = "mdemranhasan809@gmail.com";
+            $headers = "From: ". $c_email;
+            $txt = "You have received an email from " . $c_name . ".\n\n" . $c_message;
+            mail($mailTo, $c_subject, $txt, $headers);
+
+            $msg = "<div class='alert mt-2 text-center alert-success alert-dismissible fade show' role='alert'>Sent Successfully.
+                <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
+            </div>";
+        }
+    }
+
+?>
+
 <!-- start contact part -->
 <div class="container my-5" id="contact">
         <h2 class="text-center mb-4">Contact Us</h2>
         <div class="row">
             <div class="col-md-8"> <!-- 1st col form start -->
                 <form action="" method="post" class="p-5 shadow">
+                <?php if (isset($msg)) {echo $msg;} ?>
                     <div class="form-group my-4">
                         <i class="fas fa-user text-primary"></i><label class="ps-2 mb-2 fw-bold" for="cname">Name</label>
                         <input class="form-control" type="text" name="cName" id="" placeholder="Name">
@@ -14,7 +42,7 @@
                     </div>
                     <div class="form-group my-3">
                         <i class="fas fa-envelope text-success"></i><label class="ps-2 mb-2 fw-bold" for="cname">Email</label>
-                        <input class="form-control" type="text" name="cEmail" id="" placeholder="Email">
+                        <input class="form-control" type="email" name="cEmail" id="" placeholder="Email">
                         <small class="form-text" style="font-size: 12px;">We'll Never share your email with anyone else.</small>
                     </div>
                     <div class="form-group my-3">
@@ -23,8 +51,7 @@
                     </div>
 
                     <div class="form-Group mt-5">
-                        <!-- <input  type="submit" value="Send" name="rSignUp"> -->
-                        <button type="submit" name="rSignUp" class="btn btn-primary d-block w-100 "><i class="me-2 fas fa-paper-plane"></i>Send</button>
+                        <button type="submit" name="cSubmit" class="btn btn-primary d-block w-100 "><i class="me-2 fas fa-paper-plane"></i>Send</button>
                     </div>
                 </form>
             </div> <!--1st col form end -->
