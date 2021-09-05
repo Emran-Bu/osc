@@ -32,7 +32,7 @@
                 <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
             </div>";
         } else {
-            $sql = "UPDATE requester_login_tb set r_name = '$rNewName'";
+            $sql = "UPDATE requester_login_tb set r_name = '$rNewName' where r_email = '$rEmail'";
              if ($conn->query($sql) == true) {
                 $msg = "<div class='alert alert-success alert-dismissible fade show' role='alert'>Name Updated Successfully.
                     <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria-label='close'></button>
@@ -53,8 +53,8 @@
 <?php include('headReq.php'); ?>
     <!-- Start Profile Area -->
     <div class="col-sm-6 pt-5"> <!-- 2nd col start -->
-        <?php if (isset($msg)) {echo $msg;}?>
         <form class="mx-5" action="" method="post">
+        <?php if (isset($msg)) {echo $msg;}?>
             <div class="form-group">
                 <label class="fw-50" for="rEmail">Email</label>
                 <input class="form-control" type="email" name="rEmail" id="rEmail" value="<?= $rEmail; ?>" readonly>

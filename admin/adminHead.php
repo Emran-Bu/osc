@@ -46,7 +46,7 @@
 
                         <li class="nav-item"><a class="nav-link text-dark adminHover <?php if(PAGE == 'changePass'){echo 'adminActive';} ?>" href="changePass.php"><i class="fas fa-key me-2 text-danger fw-bold"></i>Change Password</a></li>
 
-                        <li class="nav-item"><a class="nav-link text-dark adminHover" href="../logout.php"><i class="fas fa-sign-out-alt me-2 text-warning fw-bold"></i>Logout</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark adminHover" href="adminLogout.php"><i class="fas fa-sign-out-alt me-2 text-warning fw-bold"></i>Logout</a></li>
                     </ul>
                 </div> <!-- End 1st col start -->
             </nav> <!--End left sidebar -->
